@@ -44,8 +44,24 @@ namespace LINQ.DataSource
             //var results = ProductList.Select((Product, Index) => $"{Index + 1}. {Product.ProductName}");
 
             //8st
-            var results = ProductList.OrderBy(p => p.Category).ThenByDescending(p => p.UnitPrice);
-          
+            //var results = ProductList.OrderBy(p => p.Category).ThenByDescending(p => p.UnitPrice);
+
+            //var results = ProductList.Where(p => p.Category == "Beverages").OrderByDescending(p => p.UnitsInStock).Select(p => new { 
+            //    p.ProductName,
+            //    p.UnitsInStock 
+            //});
+
+            //9st
+            var results = from c in CustomerList
+                         from o in c.Orders
+                         where o.OrderDate.Year >= 1997
+                         select new
+                         {
+                             CustomerID = c.CustomerID,
+                             OrderDate = o.OrderDate
+                         };
+
+
             foreach (var result in results)
             {
                 Console.WriteLine(result);
