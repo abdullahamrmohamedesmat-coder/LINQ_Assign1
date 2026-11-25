@@ -28,13 +28,23 @@ namespace LINQ.DataSource
             //var results = ProductList.Where(p => p.UnitPrice > 10 && p.UnitPrice < 30);
 
             //5st
-            var results = ProductList.Where(p => p.Category == "Spices & Condiments" && p.UnitsInStock > 0);
+            //var results = ProductList.Where(p => p.Category == "Spices & Condiments" && p.UnitsInStock > 0);
+
+
+            //6st
+            var results = ProductList.Select(p => new
+            {
+                Name = p.ProductName,
+                Price = p.UnitPrice,
+                StockStatus = p.UnitsInStock > 0 ? "Available" : "Out of Stock"
+
+            });
 
             foreach (var result in results)
             {
                 Console.WriteLine(result);
             }
-
+            Console.WriteLine(results.GetType());
 
         }
     }
