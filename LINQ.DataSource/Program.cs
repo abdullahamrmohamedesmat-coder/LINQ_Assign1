@@ -41,7 +41,10 @@ namespace LINQ.DataSource
             //});
 
             //7st
-            var results = ProductList.Select((Product, Index) => $"{Index + 1}. {Product.ProductName}");
+            //var results = ProductList.Select((Product, Index) => $"{Index + 1}. {Product.ProductName}");
+
+            //8st
+            var results = ProductList.OrderBy(p => p.Category).ThenByDescending(p => p.UnitPrice);
           
             foreach (var result in results)
             {
