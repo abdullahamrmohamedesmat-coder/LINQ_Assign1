@@ -63,11 +63,16 @@ namespace LINQ.DataSource
 
 
             //11st
-            var results= ProductList.Select((Product,Index) => new {
-                postion= Index+1,
-                Product.ProductName,
-            });
+            //var results= ProductList.Select((Product,Index) => new {
+            //    postion= Index+1,
+            //    Product.ProductName,
+            //});
 
+            //12st 
+            string[] Arr = { "aPPLE", "AbAcUs", "bRaNcH", "BlUeBeRrY", "ClOvEr", "cHeRry" };
+
+            var results = Arr.OrderBy(s => s.Length).ThenBy(s => s, StringComparer.OrdinalIgnoreCase);
+          
             foreach (var result in results)
             {
                 Console.WriteLine(result);
