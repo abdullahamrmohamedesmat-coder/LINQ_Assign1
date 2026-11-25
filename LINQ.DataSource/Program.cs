@@ -25,7 +25,11 @@ namespace LINQ.DataSource
             //var results=ProductList.OrderBy(p=>p.UnitPrice).Select(p => new { p.ProductName, p.UnitPrice });
 
             //4st
-            var results = ProductList.Where(p => p.UnitPrice > 10 && p.UnitPrice < 30);
+            //var results = ProductList.Where(p => p.UnitPrice > 10 && p.UnitPrice < 30);
+
+            //5st
+            var results = ProductList.Where(p => p.Category == "Spices & Condiments" && p.UnitsInStock > 0);
+
             foreach (var result in results)
             {
                 Console.WriteLine(result);
