@@ -51,16 +51,22 @@ namespace LINQ.DataSource
             //    p.UnitsInStock 
             //});
 
-            //9st
-            var results = from c in CustomerList
-                         from o in c.Orders
-                         where o.OrderDate.Year >= 1997
-                         select new
-                         {
-                             CustomerID = c.CustomerID,
-                             OrderDate = o.OrderDate
-                         };
+            //10st
+            //var results = from c in CustomerList
+            //             from o in c.Orders
+            //             where o.OrderDate.Year >= 1997
+            //             select new
+            //             {
+            //                 CustomerID = c.CustomerID,
+            //                 OrderDate = o.OrderDate
+            //             };
 
+
+            //11st
+            var results= ProductList.Select((Product,Index) => new {
+                postion= Index+1,
+                Product.ProductName,
+            });
 
             foreach (var result in results)
             {
