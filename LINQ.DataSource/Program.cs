@@ -8,9 +8,18 @@ namespace LINQ.DataSource
         static void Main(string[] args)
         {
             //1st
-            var results = Source.ProductList.Where(p => p.Category == "Seafood").Select(p =>new { p.ProductName, p.UnitPrice });
+            //var results = Source.ProductList.Where(p => p.Category == "Seafood").Select(p =>new { p.ProductName, p.UnitPrice });
 
-            foreach(var result in results)
+            //foreach(var result in results)
+            //{
+            //    Console.WriteLine(result);
+            //}
+
+            //2 st 
+            var results = Source.ProductList.Select(p => p.ProductName);
+
+
+            foreach (var result in results)
             {
                 Console.WriteLine(result);
             }
