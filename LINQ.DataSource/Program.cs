@@ -32,19 +32,22 @@ namespace LINQ.DataSource
 
 
             //6st
-            var results = ProductList.Select(p => new
-            {
-                Name = p.ProductName,
-                Price = p.UnitPrice,
-                StockStatus = p.UnitsInStock > 0 ? "Available" : "Out of Stock"
+            //var results = ProductList.Select(p => new
+            //{
+            //    Name = p.ProductName,
+            //    Price = p.UnitPrice,
+            //    StockStatus = p.UnitsInStock > 0 ? "Available" : "Out of Stock"
 
-            });
+            //});
 
+            //7st
+            var results = ProductList.Select((Product, Index) => $"{Index + 1}. {Product.ProductName}");
+          
             foreach (var result in results)
             {
                 Console.WriteLine(result);
             }
-            Console.WriteLine(results.GetType());
+            
 
         }
     }
