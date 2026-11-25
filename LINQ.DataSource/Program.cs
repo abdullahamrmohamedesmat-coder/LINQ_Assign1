@@ -1,5 +1,6 @@
 ﻿using LINQ.DataSources;
 using System.ComponentModel.DataAnnotations;
+using System.Globalization;
 using static LINQ.DataSources.Source; 
 
     
@@ -69,10 +70,14 @@ namespace LINQ.DataSource
             //});
 
             //12st 
-            string[] Arr = { "aPPLE", "AbAcUs", "bRaNcH", "BlUeBeRrY", "ClOvEr", "cHeRry" };
+            //string[] Arr = { "aPPLE", "AbAcUs", "bRaNcH", "BlUeBeRrY", "ClOvEr", "cHeRry" };
 
-            var results = Arr.OrderBy(s => s.Length).ThenBy(s => s, StringComparer.OrdinalIgnoreCase);
-          
+            //var results = Arr.OrderBy(s => s.Length).ThenBy(s => s, StringComparer.OrdinalIgnoreCase);
+
+            //13st
+            string[] digits = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+            var results= digits.Where(d => d.Length > 1 && d[1]=='i').Reverse().ToList();
+
             foreach (var result in results)
             {
                 Console.WriteLine(result);
