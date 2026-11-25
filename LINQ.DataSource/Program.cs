@@ -10,10 +10,22 @@ namespace LINQ.DataSource
     {
         static void Main(string[] args)
         {
+            //1st
+            //var results = Source.ProductList.Where(p => p.Category == "Seafood").Select(p =>new { p.ProductName, p.UnitPrice });
+
+            //foreach(var result in results)
+            //{
+            //    Console.WriteLine(result);
+            //}
+
+            //2 st 
+            //var results = Source.ProductList.Select(p => p.ProductName);
 
             //3st 
-            var results=ProductList.OrderBy(p=>p.UnitPrice).Select(p => new { p.ProductName, p.UnitPrice });
+            //var results=ProductList.OrderBy(p=>p.UnitPrice).Select(p => new { p.ProductName, p.UnitPrice });
 
+            //4st
+            var results = ProductList.Where(p => p.UnitPrice > 10 && p.UnitPrice < 30);
             foreach (var result in results)
             {
                 Console.WriteLine(result);
